@@ -50,6 +50,13 @@ export class ServiceCubos{
 
         return this._http.get(url,{headers});
     }
+    postCompra(id:number):Observable<any>{
+        var request = "api/Compra/InsertarPedido/"+id;
+        var url = environment.urlCubos + request;
+        var headers = this.getToken();
+
+        return this._http.post(url,null,{headers});
+    }
     getCubos():Observable<any>{
         var request = "api/Cubos";
         var url = environment.urlCubos + request;

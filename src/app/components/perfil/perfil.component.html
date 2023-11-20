@@ -1,1 +1,15 @@
-<p>perfil works!</p>
+<div>
+    <div *ngIf="checkToken; else mostrarPerfil">
+        <h1 style="color:red">No deberias estar aquí</h1>
+    </div>
+    <ng-template #mostrarPerfil>
+        <h1>Perfil</h1>
+        <h2>Nombre: {{usuario.nombre}}</h2>
+        <h2>Email: {{usuario.email}}</h2>
+        <h2>Contraseña: {{usuario.pass}}</h2>
+
+        <a [routerLink]="['/compras']" class="btn btn-success">Ver mis compras</a>
+        <a [routerLink]="['/comprar']" class="btn btn-info">Ir de compras</a>
+    </ng-template>
+
+</div>

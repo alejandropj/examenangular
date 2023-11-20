@@ -1,1 +1,16 @@
-<p>marca works!</p>
+<div>
+    <h1>Marca {{ marca }}</h1>
+    <div class="container">
+      <div *ngFor="let cubo of cubos">
+        <div class="card" style="width: 18rem">
+          <img src="{{cubo.imagen}}" class="card-img-top" alt="Cubo" />
+          <div class="card-body">
+            <h5 class="card-title">{{ cubo.nombre }}</h5>
+            <p class="card-text">{{ cubo.precio }}€</p>
+            <a [routerLink]="['/detalle/'+cubo.idCubo]" class="btn btn-primary"
+              >Detalle</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>

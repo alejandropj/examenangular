@@ -1,1 +1,21 @@
-<p>login works!</p>
+<div>
+    <div *ngIf="checkToken; else ocultarFormulario">
+        <h1>Login</h1>
+        <form #formularioLogin="ngForm" (ngSubmit)="enviarDatos()">
+            <label class="form-label">Email:</label>
+            <input class="form-control" type="text" name="cajaemail" #cajaemail="ngModel" [(ngModel)]="usuario.email">
+            <label class="form-label">Contraseña:</label>
+            <input class="form-control" type="text" name="cajapass" #cajapass="ngModel" [(ngModel)]="usuario.password">
+            <br><button>Enviar</button>
+        </form>
+        <div *ngIf="mensaje" class="alert alert-primary" role="alert">
+            {{mensaje}}
+        </div>
+    </div>
+
+    <ng-template #ocultarFormulario>
+        <h1>Iniciado Sesion</h1>
+        <a [routerLink]="['/perfil']" class="btn btn-dark">Ir a tu perfil</a>
+    </ng-template>
+
+</div>

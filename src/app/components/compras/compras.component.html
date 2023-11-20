@@ -1,1 +1,19 @@
-<p>compras works!</p>
+<div>
+    <div *ngIf="checkToken; else mostrarCompras">
+        <h1 style="color:red">No deberias estar aquí</h1>
+    </div>
+    <ng-template #mostrarCompras>
+        <div>
+            <h1>Compras</h1>
+            <a [routerLink]="['/comprar']" class="btn btn-dark">Comprar</a>
+            <ul *ngFor="let compra of compras">
+                <li>IdCubo {{compra.idCubo}}</li>
+                <li>IdCubo {{compra.idPedido}}</li>
+                <li>IdCubo {{compra.idUsuario}}</li>
+                <li>IdCubo {{compra.fechaPedido}}</li>
+                <br>
+            </ul>
+          </div>
+    </ng-template>
+
+</div>

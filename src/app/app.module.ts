@@ -1,5 +1,7 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { HttpClientModule } from "@angular/common/http";
+import { FormsModule } from '@angular/forms';
 
 import { AppComponent } from './app.component';
 import { HomeComponent } from './components/home/home.component';
@@ -12,6 +14,7 @@ import { ComprarComponent } from './components/comprar/comprar.component';
 import { DetallecuboComponent } from './components/detallecubo/detallecubo.component';
 import { ComprasComponent } from './components/compras/compras.component';
 import { appRoutingProvider, routing } from './app.routing';
+import { ServiceCubos } from './services/service.cubos';
 
 @NgModule({
   declarations: [
@@ -27,10 +30,12 @@ import { appRoutingProvider, routing } from './app.routing';
     ComprasComponent
   ],
   imports: [
+    HttpClientModule,
+    FormsModule,
     BrowserModule,
     routing
   ],
-  providers: [appRoutingProvider],
+  providers: [appRoutingProvider,ServiceCubos],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
