@@ -1,1 +1,19 @@
-<p>comprar works!</p>
+<div>
+    <div *ngIf="checkToken; else mostrarCompras">
+        <h1 style="color:red">No deberias estar aquí</h1>
+    </div>
+    <ng-template #mostrarCompras>
+        <div>
+            <h1>Realizar Compra</h1>
+            <form #formularioComprar="ngForm" (ngSubmit)="enviarDatos()">
+                <label>Selecciona cubo: </label>
+                <select name="cajacubo" #cajacubo="ngModel"
+                [(ngModel)]="cuboSeleccionado">
+                    <option *ngFor="let cubo of cubos" value="{{cubo.idCubo}}">{{cubo.nombre}}</option>
+                </select>
+                <button>Comprar</button>
+            </form>
+        </div>
+    </ng-template>
+
+</div>
